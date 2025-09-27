@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot Web</title>
+  <style>
+    /* Chat flotante */
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      height: 400px;
+      background: #fff;
+      border: 2px solid #0078d7;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    #chat-header {
+      background: #0078d7;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 8px 8px 0 0;
+    }
+
+    #chat-messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .msg {
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 5px;
+      max-width: 80%;
+    }
+
+    .user { background: #e1f5fe; align-self: flex-end; }
+    .bot { background: #f1f1f1; align-self: flex-start; }
+
+    #chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    #chat-input input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 0 0 0 8px;
+    }
+
+    #chat-input button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 0 0 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="chatbot">
+    <div id="chat-header">Asistente Virtual</div>
+    <div id="chat-messages"></div>
+    <div id="chat-input">
+      <input type="text" id="userMsg" placeholder="Escribe tu mensaje...">
+      <button onclick="sendMsg()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    async function sendMsg() {
+      const input = document.getElementById("userMsg");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      addMessage("user", msg);
+      input.value = "";
+
+      try {
+        const res = await fetch("http://127.0.0.1:5000/chat", {
+
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({message: msg})
+        });
+        const data = await res.json();
+        addMessage("bot", data.reply);
+      } catch (err) {
+        addMessage("bot", "Error al comunicarse con el servidor.");
+        console.error(err);
+      }
+    }
+
+    function addMessage(sender, text) {
+      const chat = document.getElementById("chat-messages");
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("msg", sender);
+      msgDiv.innerText = text;
+      chat.appendChild(msgDiv);
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>
