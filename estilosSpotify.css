@@ -1,0 +1,127 @@
+body{
+    background-color: gray;
+}
+.box{
+    width: 600px;
+    height: 800px;
+    background:black;
+    margin:auto;
+    border-radius: 20px;
+;
+
+
+}
+h2{
+    font-family: "Winky Rough", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color:azure;
+    text-align:  center;
+    padding-bottom: 5px;
+    font-size: 40px;
+    
+}
+.imagen{
+    width: 100px;
+    height:100px;
+    margin: auto;
+    padding-top: 10px;
+    display: block;
+
+
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* espacio entre los botones */
+    align-items: center;
+    margin-bottom: 200px;
+}
+.b {
+    position: relative;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 10px 30px;
+    width: 400px;
+    cursor: pointer;
+    font-family: "Winky Rough", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  
+    text-align: center;
+}
+
+
+h3{
+    margin-right: 190px;
+    margin-bottom: 5px;
+    color:white;
+    font-family: "Winky Rough", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+
+    
+    
+    
+}
+.emailUsuario{
+    margin-right: 1px;
+    border-radius: 3px;
+    background-color: black;
+    color:white;
+    border: 1px solid white;
+    width: 400px;
+    height:45px;
+
+
+    
+}
+.siguiente{
+    background-color: rgb(29, 185, 84);
+    width: 300px;
+    height:50px;
+    border-radius: 20px;
+    border-color:rgb(29, 185, 84) ;
+    color: black;
+    font-family: "Winky Rough", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 550;
+    font-style: normal;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.ultimo{
+    margin: auto;
+    margin-top: 30px;
+    font-family: "Winky Rough", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+
+    
+}
+.google{
+    position: absolute;
+    left: 20px;
+    width: 30px;
+    height: 25px;
+}
+.facebook{
+    position: absolute;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+}
+.apple{
+    position: absolute;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+}

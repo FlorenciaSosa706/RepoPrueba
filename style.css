@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(182, 114, 189);
+    color: rgb(247, 218, 182);
+    font-family: sans-serif;
+}
+
+
+details{
+    background-color:transparent;
+    border:3px solid #e700c5;
+    padding: 9px;
+    font-size: 0.8em;
+    color: aliceblue;
+}
+
+summary{
+    background-color:transparent;
+    font-size: 1.3em;
+    color: blueviolet;
+}
+ul{
+    font-weight: 100;
+}
